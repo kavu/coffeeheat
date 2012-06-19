@@ -6,8 +6,8 @@ coffeeheat.js: src/main.coffee
 coffeeheat.min.js: coffeeheat.js
 	uglifyjs coffeeheat.js > coffeeheat.min.js
 
-coffeeheat.gmaps.js: src/heatmap-gmaps.js
-	cp src/heatmap-gmaps.js coffeeheat.gmaps.js
+coffeeheat.gmaps.js: src/coffeeheat.gmaps.coffee
+	coffee -p -c src/coffeeheat.gmaps.coffee > coffeeheat.gmaps.js
 
 coffeeheat.gmaps.min.js: coffeeheat.gmaps.js
 	uglifyjs coffeeheat.gmaps.js > coffeeheat.gmaps.min.js
