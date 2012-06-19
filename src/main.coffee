@@ -25,10 +25,10 @@
         data[x][y] = 0 if !data[x][y]
         data[x][y] += (if arguments.length < 3 then 1 else arguments[2])
 
-        @set("data", data);
+        @set("data", data)
 
         if @max < data[x][y]
-           @max = data[x][y];
+           @max = data[x][y]
            heatmap.get("actx").clearRect(0, 0, heatmap.get("width"), heatmap.get("height"))
            for one of data
              for two of data[one]
@@ -39,13 +39,13 @@
         return
 
       setDataSet: (obj) ->
-        heatmap = @get("heatmap");
-        data = [];
-        d = obj.data;
-        dlen = d.length;
+        heatmap = @get("heatmap")
+        data = []
+        d = obj.data
+        dlen = d.length
 
-        heatmap.clear();
-        this.max = obj.max;
+        heatmap.clear()
+        @max = obj.max
 
         while dlen--
           point = d[dlen]
@@ -73,7 +73,7 @@
         data: exportData
 
       generateRandomDataSet: (points) ->
-        heatmap = this.get("heatmap")
+        heatmap = @get("heatmap")
         max = Math.floor(Math.random()*1000+1)
 
         data = []
@@ -84,10 +84,9 @@
             count: Math.floor(Math.random()*max+1)
           )
 
-        this.setDataSet(
+        @setDataSet
           max: max
           data: data
-        )
 
         return
 
@@ -310,5 +309,5 @@
     }
   )()
 
-  w.h337 = w.heatmapFactory = heatmapFactory;
-)(window);
+  w.h337 = w.heatmapFactory = heatmapFactory
+)(window)
